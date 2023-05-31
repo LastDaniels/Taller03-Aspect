@@ -1,22 +1,24 @@
-import java.io.BufferedWriter
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Calendar;
-
+import archivos.*;
 import com.bettinghouse.BettingHouse;
 import com.bettinghouse.Person;
 import com.bettinghouse.User;
 
 public aspect Logger {
-	
+	String filepath="src/archivos/register.txt";
 	 Calendar cal = Calendar.getInstance();
-	 pointcut success(User u, Person p) : call(* BettingHousesuccessfulSignUp(User, Person))) && args(u) && args(p);
+	 pointcut success(User u, Person p) : call(* BettingHouse.successfulSignUp(User , Person )) && args(u) && args(p);
 	    
-	    after(User u, Person p) : success(u, p) {
-	    	try (FileWriter fileWriter = new FileWriter(filePath, true);
-	                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-	               // Aquí puedes escribir en el archivo
-	               bufferedWriter.write("Texto a escribir al final de la línea");
-	               bufferedWriter.newLine(); // Agregar nueva línea al final
+	    after(User u, Person p)  : success(u, p) {
+	    	
+	    	try (BufferedWriter br=new BufferedWriter(new FileWriter(filepath,true))){
+	              
+	               br.write("Usuario registrado: "+"["+"nickname: "+u.getNickname()+ "password: "+u.getPassword()+"[");
+	               br.newLine(); // Agregar nueva línea al final
+	               
 	           } catch (IOException e) {
 	               e.printStackTrace();
 	           }

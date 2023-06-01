@@ -8,15 +8,16 @@ import com.bettinghouse.Person;
 import com.bettinghouse.User;
 
 public aspect Logger {
-	String filepath="src/archivos/register.txt";
+	 String filepath="src/archivos/register.txt";
 	 Calendar cal = Calendar.getInstance();
-	 pointcut success(User u, Person p) : call(* BettingHouse.successfulSignUp(User , Person )) && args(u) && args(p);
+	 pointcut success(User u, Person p) : 
+		 call(void com.bettinghouse.BettingHouse.successfulSignUp(User , Person )) && args(u,p);
 	    
-	    after(User u, Person p)  : success(u, p) {
+	    after(User u, Person p) :success(u, p) {
 	    	
 	    	try (BufferedWriter br=new BufferedWriter(new FileWriter(filepath,true))){
 	              
-	               br.write("Usuario registrado: "+"["+"nickname: "+u.getNickname()+ "password: "+u.getPassword()+"[");
+	               br.write("Usuario registrado: "+"[ "+"nickname: "+u.getNickname()+" "+" password: "+u.getPassword()+" ]");
 	               br.newLine(); // Agregar nueva línea al final
 	               
 	           } catch (IOException e) {

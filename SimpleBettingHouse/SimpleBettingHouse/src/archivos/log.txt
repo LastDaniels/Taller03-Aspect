@@ -1,0 +1,3 @@
+Sesion iniciada por usuario [ kevin ] Fecha: [ 31/mayo/2023 08:23:38  ]
+Sesion iniciada por usuario [ daf ] Fecha: [ 31/mayo/2023 08:24:50  ]
+Sesion cerrada por usuario [ daf ] Fecha: [ 31/mayo/2023 08:24:50  ]

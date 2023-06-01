@@ -1,0 +1,2 @@
+Usuario registrado: [ nickname: kevin  password: kevin ] Fecha: [ 31/mayo/2023 08:23:33 ]
+Usuario registrado: [ nickname: daf  password: daf ] Fecha: [ 31/mayo/2023 08:24:46 ]

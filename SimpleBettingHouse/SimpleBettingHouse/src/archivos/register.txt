@@ -1,1 +1,0 @@
-Usuario registrado: [ nickname: dtruiz  password: dt ]
